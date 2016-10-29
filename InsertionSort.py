@@ -1,22 +1,26 @@
 from time import time
+import code
 
 class InsertionSort:
 	def __init__(self, inSeq = []):
 		self.inSeq = inSeq
-		self.time = -1
-		self.outSeq = []
-
+		
 	def sort(self, inSeq):
-		self.inSeq = list(inSeq)
-		self.outSeq = list(inSeq)
-		t0 = time()
-		for j in range(1, len(self.outSeq)):
-			key = self.outSeq[j]
+		self.inSeq = inSeq
+		for j in range(1, len(self.inSeq)):
+			key = self.inSeq[j]
 			i = j-1
-			while i >= 0 and self.outSeq[i] > key:
-				self.outSeq[i+1] = self.outSeq[i]
+			while i >= 0 and self.inSeq[i] > key:
+				self.inSeq[i+1] = self.inSeq[i]
 				i -= 1
-			self.outSeq[i+1] = key
-		t1 = time()
-		self.time = t1-t0
-		return self.outSeq, self.time
+			self.inSeq[i+1] = key
+		return self.inSeq
+
+# # Debug
+# a = [5,4,3,2,1]
+# s = InsertionSort()
+# t0 = time()
+# b = s.sort(a)
+# t1 = time()
+# time = t1-t0
+# code.interact(local=dict(globals(), **locals()))

@@ -31,8 +31,11 @@ class EvaluateAlgo:
 			for i in range(self.average):
 				# randomly generate N(inputSize) numbers 0 bw 0 & 1000
 				inSeq = [int(rnd()*1000) for i in range(inputSize)]	
-				outSeq, time = self.algo.sort(inSeq)
-				totalTime += time
+				t0 = time()
+				outSeq = self.algo.sort(inSeq)
+				t1 = time()
+				delTime = t1-t0
+				totalTime += delTime
 			avgTime = totalTime/self.average
 			self.times.append((inputSize, avgTime))
 		return self.times
