@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 from InsertionSort import InsertionSort
 from SelectionSort import SelectionSort
+from MergeSort import MergeSort
 
 plt.ion()
 fig, ax = plt.subplots()
@@ -52,6 +53,9 @@ if __name__ == '__main__':
 	evaluate.plot(ax)
 	print times
 	times = evaluate.evaluate(Algorithm=SelectionSort)
+	evaluate.plot(ax)
+	print times
+	times = evaluate.evaluate(Algorithm=MergeSort)
 	evaluate.plot(ax)
 	print times
 	
