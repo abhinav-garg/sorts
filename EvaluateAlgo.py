@@ -4,6 +4,7 @@ import code
 import matplotlib.pyplot as plt
 
 from InsertionSort import InsertionSort
+from SelectionSort import SelectionSort
 
 plt.ion()
 fig, ax = plt.subplots()
@@ -44,7 +45,11 @@ class EvaluateAlgo:
 
 if __name__ == '__main__':
 	evaluate = EvaluateAlgo(inputSizes=[10,100,1000,10000], average=1)
-	times = evaluate.evaluate()
+	times = evaluate.evaluate(Algorithm=InsertionSort)
 	evaluate.plot(ax)
 	print times
+	times = evaluate.evaluate(Algorithm=SelectionSort)
+	evaluate.plot(ax)
+	print times
+	
 	code.interact(local=dict(globals(), **locals()))
